@@ -1,2 +1,2 @@
-javac *.java
+javac MysteryWord.java
 pause

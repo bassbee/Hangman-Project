@@ -1,56 +1,46 @@
 import pkg.*;
 import java.util.ArrayList;
 public class MysteryWord{
-	String word, output;
-	String[] correct;
-	public MysteryWord(String w){
-		word = w;
-		correct = makeLetters(word);
-		output = "";
-	}
-	public String getHint(String in){
-		String[] input = makeLetters(in);
-		String returnThis = new String("");
+	ArrayList<String> words;
+	
+	public MysteryWord(String difficulty){
+		EasyReader read;
+		words = new ArrayList<String>();
 		
-		for(int x = 0; x < input.length; x++){
-			if(input[x].equals(correct[x])){
-				returnThis = returnThis.concat(input[x]);
-			}
-			else if(isContainedInCorrect(input[x])){
-				returnThis = returnThis.concat("+");
-			}
-			else{
-				returnThis = returnThis.concat("*");
-			}
+		if(difficulty.equals("hard")){
+			read = new EasyReader("words/hard.txt");
+		}else if(difficulty.equals("medium")){
+			read = new EasyReader("words/medium.txt");
+		}else{
+			read = new EasyReader("words/easy.txt");
 		}
-		output = returnThis;
-		return returnThis;
-	}
-	private String[] makeLetters(String in){
-		String[] letters = new String[in.length()];
-		for(int x = 0; x < in.length(); x++){
-			letters[x] = in.substring(x, x+1);
+		
+		while(!read.eof())
+		{
+			words.add(read.readLine());
 		}
-		return letters;
 	}
-	private boolean isContainedInCorrect(String letter){
-		for(String l: correct){
-			if(l.equals(letter)){
-				return true;
-			}
+	
+	public String getWord()
+	{
+		return words.get((int)(Math.random()*words.size()));
+	}
+	
+	public void print()
+	{
+		System.out.println("word list: ");
+		for(String s : words)
+		{
+			System.out.println(s);
 		}
-		return false;
 	}
-	public String getOutput(){
-		return output;
+	
+	public static void main(String args[])
+	{
+		MysteryWord test = new MysteryWord("hard");
+		System.out.println(test.getWord());
+		test.print();
+		
 	}
-	public String getAnswer(){
-		return word;
-	}
-	public int length(){
-		return word.length();
-	}
-	public String toString(){
-		return word;
-	}
+
 }
