@@ -9,6 +9,7 @@ public class starter
 			Picture rarm = new Picture("drneatrightarm.png");
 			Picture lleg = new Picture("drneatleftleg.png");
 			Picture rleg = new Picture("drneatrightleg.png");
+			Picture whole = new Picture("neatwhole.png");
 		
 			Picture[] neato = {head, body, larm, rarm, lleg, rleg};
 		
