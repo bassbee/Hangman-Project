@@ -1,46 +1,32 @@
 import pkg.*;
 import java.util.ArrayList;
 public class MysteryWord{
-	ArrayList<String> words;
-	
-	public MysteryWord(String difficulty){
-		EasyReader read;
-		words = new ArrayList<String>();
-		
-		if(difficulty.equals("hard")){
-			read = new EasyReader("words/hard.txt");
-		}else if(difficulty.equals("medium")){
-			read = new EasyReader("words/medium.txt");
-		}else{
-			read = new EasyReader("words/easy.txt");
-		}
-		
-		while(!read.eof())
-		{
-			words.add(read.readLine());
-		}
+	String word, output;
+	String[] correct;
+	public MysteryWord(String w){
+		word = w;
+		correct = makeLetters(word);
+		output = "";
 	}
 	
-	public String getWord()
-	{
-		return words.get((int)(Math.random()*words.size()));
-	}
-	
-	public void print()
-	{
-		System.out.println("word list: ");
-		for(String s : words)
-		{
-			System.out.println(s);
+	private String[] makeLetters(String in){
+		String[] letters = new String[in.length()];
+		for(int x = 0; x < in.length(); x++){
+			letters[x] = in.substring(x, x+1);
 		}
-	}
-	
-	public static void main(String args[])
-	{
-		MysteryWord test = new MysteryWord("hard");
-		System.out.println(test.getWord());
-		test.print();
-		
+		return letters;
 	}
 
+	public String getOutput(){
+		return output;
+	}
+	public String getAnswer(){
+		return word;
+	}
+	public int length(){
+		return word.length();
+	}
+	public String toString(){
+		return word;
+	}
 }

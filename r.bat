@@ -1,3 +1,3 @@
-java -cp .; MysteryWord
+java -cp .; starter
 pause
 
