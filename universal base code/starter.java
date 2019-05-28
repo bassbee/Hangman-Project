@@ -10,6 +10,9 @@ public class starter
 			System.out.println(drNeato.getX());
 			System.out.println(drNeato.getWidth() + " " + drNeato.getHeight());
 			drNeato.draw();
+			// Rectangle tester = new Rectangle(0,0,10,10);
+			// tester.setColor(Color.black);
+			// parts.add(tester);
 		}
 	
 }
