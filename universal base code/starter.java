@@ -3,6 +3,7 @@ public class starter
 {
         public static void main(String args[])
         {
+			ArrayList<Rectangle> parts = new ArrayList<Rectangle>();
 			Picture drNeato = new Picture("neatwhole.png");
 			drNeato.grow(-1100,-1050);
 			drNeato.translate(-1050,-1000);
