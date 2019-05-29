@@ -1,6 +1,7 @@
-# Hangman-Project
-1. Gamestate
-2. Picture/ simple picture situation
-3. Game driver
-4. Mystery word
-5. shape stuff
+# NEAT HANGMAN PROJECT PERIOD 3
+## Checklist: 
+1. GameState
+2. graphics
+3.
+4.
+5.
