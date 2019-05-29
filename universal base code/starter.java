@@ -21,7 +21,7 @@ public class starter
 			Rectangle body = new Rectangle(185,105,75,145);
 			Rectangle head = new Rectangle(195,50,45,55);
 			Rectangle leg1 = new Rectangle(185,250,40,165);
-            Rectangle leg2 = new Rectangle(225,250,40,165);
+                        Rectangle leg2 = new Rectangle(225,250,40,165);
 			
 			arm1.setColor(Color.WHITE);
 			arm2.setColor(Color.WHITE);
