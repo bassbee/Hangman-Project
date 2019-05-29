@@ -12,7 +12,7 @@ public class MysteryWord{
 		words = new ArrayList<String>();
 		fails = new ArrayList<String>();
 		
-		// if(difficulty.equals("HARD")){
+		// if(difficulty.equals("HARD")){       	//the following is all commented out for testing
 		// 	read = new EasyReader("words/hard.txt");
 		// }else if(difficulty.equals("MEDIUM")){
 		// 	read = new EasyReader("words/medium.txt");
@@ -25,9 +25,9 @@ public class MysteryWord{
 		// 	words.add(read.readLine());
 		// }
 		// mWord = words.get((int)(Math.random()*words.size()));
-		mWord = "onii-chan";
+		mWord = "onii-chan";    //this is the returned mystery word the player has to guess. for testing
 		hint = "";
-		for(int i=0;i<mWord.length();i++) hint += "_";
+		for(int i=0;i<mWord.length();i++) hint += "_";   // prints string of underscores
 		guess = new boolean[mWord.length()];
 	}
 	
@@ -56,7 +56,7 @@ public class MysteryWord{
 
 	public void printGameStatus()
 	{
-		for(int i=0;i<mWord.length();i++)
+		for(int i=0;i<mWord.length();i++)  // prints out the game status.
 		{
 			if(guess[i]) System.out.print(mWord.substring(i,i+1)+" ");
 			else System.out.print(hint.substring(i,i+1)+" ");
