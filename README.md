@@ -1,5 +1,5 @@
-## Graphics file
-# Sectioning of parts has been done
+# Graphics branch
+## Sectioning of parts has been done
 * What else do we need?
 
 *# Please edit this so we have a checklist of things we need to do*
