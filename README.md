@@ -1,10 +1,10 @@
-# Graphics branch
-## Sectioning of parts has been done
+# NEAT HANGMAN PROJECT PERIOD 3
+## GRAPHICS BRANCH: Sectioning of parts has been done
 * What else do we need?
 
 *# Please edit this so we have a checklist of things we need to do*
-1.
-2.
-3.
-4.
-5.
+1. ...
+2. ...
+3. ...
+4. ...
+5. ...
