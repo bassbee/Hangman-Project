@@ -1,2 +1,2 @@
-javac starter.java
+javac startScreen.java
 pause

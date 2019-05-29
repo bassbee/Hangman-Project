@@ -1,3 +1,3 @@
-java -cp .; starter
+java -cp .; startScreen
 pause
 
