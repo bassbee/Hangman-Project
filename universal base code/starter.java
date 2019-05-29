@@ -36,6 +36,13 @@ public class starter
 			parts.add(head);
 			parts.add(leg1);
 			parts.add(leg2);
+			
+			arm1.fill();
+			arm2.fill();
+			body.fill();
+			head.fill();
+			leg1.fill();
+			leg2.fill();
 		}
 	
 }
