@@ -1,6 +1,6 @@
 import pkg.*;
 import java.util.ArrayList;
-public class GameDriver
+public class GameDriver //Sarah's code. this works; no editing pls.
 {
 	private GameState state;
 	
@@ -12,7 +12,7 @@ public class GameDriver
 		while(!(state.isGameOver())){
 			Player currentPlayer = state.getCurrentPlayer();
 			String nextMove = currentPlayer.getNextMove(state);
-			System.out.println(nextMove);
+			//System.out.println(nextMove);
 			//System.out.println(currentPlayer.getName() + " " + nextMove);
 			state.makeMove(nextMove);
 		}
@@ -20,7 +20,7 @@ public class GameDriver
 			System.out.println((state.getWinner()).getName() + " win");
 		}
 		else{
-			System.out.println("game ended in a draw"); 
+			System.out.println("you lose"); 
 		}
 	}
 	
