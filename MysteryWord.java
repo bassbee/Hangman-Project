@@ -8,8 +8,12 @@ public class MysteryWord{
 	private ArrayList<String> fails;
 	
 	public MysteryWord(String difficulty){
-		EasyReader read;
+		EasyReader read = new EasyReader("words/" + difficulty.toLowerCase() + ".txt");
 		words = new ArrayList<String>();
+		while(!read.eof()) //add all words from the txt into the words array
+		{
+			words.add(read.readLine());
+		}
 		fails = new ArrayList<String>();
 		
 		// if(difficulty.equals("HARD")){       	//the following is all commented out for testing
@@ -25,7 +29,7 @@ public class MysteryWord{
 		// 	words.add(read.readLine());
 		// }
 		// mWord = words.get((int)(Math.random()*words.size()));
-		mWord = "onii-chan";    //this is the returned mystery word the player has to guess. for testing
+		mWord = words.get((int)(Math.random() * words.size()));    //this is the returned mystery word the player has to guess. for testing
 		hint = "";
 		for(int i=0;i<mWord.length();i++) hint += "_";   // prints string of underscores
 		guess = new boolean[mWord.length()];
