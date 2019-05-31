@@ -55,7 +55,16 @@ public class MysteryWord{
 
 			}
 		}
-		if(mWord.indexOf(input) == -1) fails.add(input);
+		
+		
+		boolean duplicate = false;
+		for(int i = 0; i< fails.size(); i++) //check for duplicates
+		{
+			if(input.equals(fails.get(i))) duplicate = true;
+		}
+		
+		if(!duplicate && mWord.indexOf(input) == -1) fails.add(input);
+			
 	}
 
 	public void printGameStatus()
