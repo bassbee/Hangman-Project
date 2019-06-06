@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class GameDriver //Sarah's code. this works; no editing pls.
 {
 	private GameState state;
+	private Text condition;
 	
 	public GameDriver(GameState initial){
 		state = initial;
