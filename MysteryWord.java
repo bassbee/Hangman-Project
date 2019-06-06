@@ -6,6 +6,7 @@ public class MysteryWord{
 	private String mWord;
 	private String hint;
 	private ArrayList<String> fails;
+	Neato drNeat; int wrongGuesses;
 	
 	public MysteryWord(String difficulty){
 		EasyReader read = new EasyReader("words/" + difficulty.toLowerCase() + ".txt");
@@ -15,24 +16,13 @@ public class MysteryWord{
 			words.add(read.readLine());
 		}
 		fails = new ArrayList<String>();
-		
-		// if(difficulty.equals("HARD")){       	//the following is all commented out for testing
-		// 	read = new EasyReader("words/hard.txt");
-		// }else if(difficulty.equals("MEDIUM")){
-		// 	read = new EasyReader("words/medium.txt");
-		// }else{
-		// 	read = new EasyReader("words/easy.txt");
-		// }
-		
-		// while(!read.eof())
-		// {
-		// 	words.add(read.readLine());
-		// }
-		// mWord = words.get((int)(Math.random()*words.size()));
 		mWord = words.get((int)(Math.random() * words.size()));    //this is the returned mystery word the player has to guess. for testing
 		hint = "";
 		for(int i=0;i<mWord.length();i++) hint += "_";   // prints string of underscores
 		guess = new boolean[mWord.length()];
+		
+		drNeat = new Neato();
+		wrongGuesses = 0;
 	}
 	
 	public String getWord()
@@ -63,7 +53,10 @@ public class MysteryWord{
 			if(input.equals(fails.get(i))) duplicate = true;
 		}
 		
-		if(!duplicate && mWord.indexOf(input) == -1) fails.add(input);
+		if(!duplicate && mWord.indexOf(input) == -1){
+			fails.add(input);
+			drNeat.getPart(fails.size()-1); //wrongGuesses++;
+		}
 			
 	}
 
