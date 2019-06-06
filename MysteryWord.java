@@ -6,6 +6,9 @@ public class MysteryWord{
 	private String mWord;
 	private String hint;
 	private ArrayList<String> fails;
+	private Text tries;
+	private Text actual;
+	private String actualStr;
 	Neato drNeat;
 	
 	public MysteryWord(String difficulty){
@@ -22,6 +25,20 @@ public class MysteryWord{
 		guess = new boolean[mWord.length()];
 		
 		drNeat = new Neato();
+		
+		tries = new Text(160,25,"Letters you've used: "+fails.toString());
+		tries.grow(45,10);
+		tries.draw();
+		
+		actualStr = new String("");
+		for(int i=0;i<mWord.length();i++)  // draws game status onscreen.
+		{
+			if(guess[i]) actualStr += mWord.substring(i,i+1)+" ";
+			else actualStr += hint.substring(i,i+1)+" ";
+		}
+		actual = new Text(200,420,actualStr);
+		actual.grow(20,10);
+		actual.draw();
 	}
 	
 	public String getWord()
@@ -62,13 +79,22 @@ public class MysteryWord{
 
 	public void printGameStatus()
 	{
-		for(int i=0;i<mWord.length();i++)  // prints out the game status.
+		// for(int i=0;i<mWord.length();i++)  //// prints out the game status.
+		// {
+			// if(guess[i]) System.out.print(mWord.substring(i,i+1)+" ");
+			// else System.out.print(hint.substring(i,i+1)+" ");
+		// }
+		// System.out.print("       |        Incorrect Guesses: "+fails);
+		// System.out.println();
+		tries.setText("Letters you've used: "+fails);
+		
+		actualStr = "";
+		for(int i=0;i<mWord.length();i++)  // updates and draws game status onscreen.
 		{
-			if(guess[i]) System.out.print(mWord.substring(i,i+1)+" ");
-			else System.out.print(hint.substring(i,i+1)+" ");
+			if(guess[i]) actualStr += mWord.substring(i,i+1)+" ";
+			else actualStr += hint.substring(i,i+1)+" ";
 		}
-		System.out.print("       |        Incorrect Guesses: "+fails);
-		System.out.println();
+		actual.setText(actualStr);
 	}
 
 	public boolean wordComplete()
