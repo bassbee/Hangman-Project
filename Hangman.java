@@ -12,7 +12,7 @@ class Hangman implements GameState
 		System.out.print("Choose HARD/MEDIUM/EASY :");
 		console = new EasyReader();     //easyreader gets the difficulty from the console. 
 		String d = console.readLine();  //on our final project, the canvas will do this instead.
-		mWord = new MysteryWord(d);     //REMEMBER, d = difficulty, not the actual word. 
+		mWord = new MysteryWord(d.toLowerCase());     //REMEMBER, d = difficulty, not the actual word. 
 		player = new Player("User");
 		System.out.println("[Enter in a letter to guess!] \n\n");
 		mWord.printGameStatus();

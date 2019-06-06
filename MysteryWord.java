@@ -6,7 +6,7 @@ public class MysteryWord{
 	private String mWord;
 	private String hint;
 	private ArrayList<String> fails;
-	Neato drNeat; int wrongGuesses;
+	Neato drNeat;
 	
 	public MysteryWord(String difficulty){
 		EasyReader read = new EasyReader("words/" + difficulty.toLowerCase() + ".txt");
@@ -22,7 +22,6 @@ public class MysteryWord{
 		guess = new boolean[mWord.length()];
 		
 		drNeat = new Neato();
-		wrongGuesses = 0;
 	}
 	
 	public String getWord()
@@ -39,23 +38,24 @@ public class MysteryWord{
 	{
 		for(int i=0;i<mWord.length();i++)
 		{
-			if(mWord.substring(i,i+1).equals(input)) 
+			if(mWord.substring(i,i+1).equals(input.toLowerCase())) 
 			{
 				guess[i] = true;
-
 			}
 		}
 		
-		
+		/*
+		 * check for duplicates
+		*/
 		boolean duplicate = false;
-		for(int i = 0; i< fails.size(); i++) //check for duplicates
+		for(int i = 0; i< fails.size(); i++) 
 		{
-			if(input.equals(fails.get(i))) duplicate = true;
+			if(input.toLowerCase().equals(fails.get(i))) duplicate = true;
 		}
 		
-		if(!duplicate && mWord.indexOf(input) == -1){
+		if(!duplicate && mWord.indexOf(input.toLowerCase()) == -1){
 			fails.add(input);
-			drNeat.getPart(fails.size()-1); //wrongGuesses++;
+			drNeat.getPart(fails.size()-1); //add a part of DrNeat's body
 		}
 			
 	}
