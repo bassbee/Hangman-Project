@@ -17,10 +17,16 @@ public class GameDriver //Sarah's code. this works; no editing pls.
 			state.makeMove(nextMove);
 		}
 		if(!(state.getWinner() == null)){
-			System.out.println((state.getWinner()).getName() + " win");
+			// System.out.println((state.getWinner()).getName() + " win");
+			condition = new Text(200,450,state.getWinner().getName() + " win");
+			condition.grow(30,10);
+			condition.draw();
 		}
 		else{
-			System.out.println("you lose"); 
+			// System.out.println("you lose"); 
+			condition = new Text(200,450,"you lose");
+			condition.grow(30,10);
+			condition.draw();
 		}
 	}
 	
