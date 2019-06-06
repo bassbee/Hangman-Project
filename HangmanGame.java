@@ -1,16 +1,15 @@
 import java.util.ArrayList;
-import pkg.EasyReader;
+import pkg.*;
 
 public class HangmanGame {
-	//implements GameState
 	ArrayList<String> words;
-	EasyReader reader;
-	String difficulty, answer;
+	EasyReader read;
+	String d, answer;
 	public HangmanGame(){
-		reader = new EasyReader();
-		System.out.println("Choose your difficulty:");
-		difficulty = reader.readWord();
-		
+		words = new ArrayList<String>();
+	}
+	public void setDifficulty(String difficulty){
+		d = difficulty;
 		if(difficulty.equals("hard")){
 			read = new EasyReader("words/hard.txt");
 		}
@@ -20,14 +19,18 @@ public class HangmanGame {
 		else{
 			read = new EasyReader("words/easy.txt");
 		}
-		
 		while(!read.eof())
 		{
 			words.add(read.readLine());
 		}
-		getRandWord();
 	}
-	
+	public void drawGame(){
+		Rectangle background = new Rectangle(0, 0, 10000, 10000);
+		background.setColor(Color.WHITE);
+		background.fill();
+		Text test = new Text(20, 20, d);
+		test.draw();
+	}
 	public String getRandWord(){
 		answer = words.get((int)(Math.random() * words.size()));
 		System.out.println(answer);

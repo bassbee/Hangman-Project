@@ -34,7 +34,7 @@ public class startScreen extends JFrame
 		gameTitlePanel.setBackground(new Color(214, 0, 67)); //set panel color
 		
 		/**Create the title of the game**/
-		gameTitle = new JLabel("Save Dr. Neat (?)");
+		gameTitle = new JLabel("Save Dr. Neat");
 		gameTitle.setForeground(Color.white); //letters' color
 		gameTitle.setFont(gameTitleFont); 
 		this.add(gameTitlePanel); //add title to panel
@@ -45,23 +45,33 @@ public class startScreen extends JFrame
 		buttonsPanel.setBounds(400, 500, 100, 100);
 		buttonsPanel.setBackground(new Color(214, 0, 67));
 		
+
 		ez = new JButton("easy");
 		ez.addActionListener((ActionEvent e) -> {
 			/**add what happens when 'easy' is pressed*/
 			System.out.println("easy");
-			
+			HangmanGame game = new HangmanGame();
+			game.setDifficulty("easy");
+			game.drawGame();
 		});
 		
 		med = new JButton("medium");
 		med.addActionListener((ActionEvent e) -> {
 			/**add what happens when 'medium' is pressed*/
 			System.out.println("medium");
+			HangmanGame game = new HangmanGame();
+			game.setDifficulty("medium");
+			game.drawGame();
+			
 		});
 		
 		hard = new JButton("hard");
 		hard.addActionListener((ActionEvent e) -> {
 			/**add what happens when 'hard' is pressed*/
 			System.out.println("hard");
+			HangmanGame game = new HangmanGame();
+			game.setDifficulty("hard");
+			game.drawGame();
 		});
 		
 		buttonsPanel.add(ez, BorderLayout.CENTER); buttonsPanel.add(med); buttonsPanel.add(hard); //add buttons to panel
