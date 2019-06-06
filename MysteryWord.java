@@ -48,7 +48,7 @@ public class MysteryWord{
 		 * check for duplicates
 		*/
 		boolean duplicate = false;
-		for(int i = 0; i< fails.size(); i++) 
+		for(int i = 0; i< fails.size(); i++)
 		{
 			if(input.toLowerCase().equals(fails.get(i))) duplicate = true;
 		}
