@@ -9,7 +9,7 @@ public class MysteryWord{
 	private Text tries;
 	private Text actual;
 	private String actualStr;
-	Neato drNeat;
+	// Neato drNeat;
 	
 	public MysteryWord(String difficulty){
 		EasyReader read = new EasyReader("words/" + difficulty.toLowerCase() + ".txt");
@@ -24,11 +24,11 @@ public class MysteryWord{
 		for(int i=0;i<mWord.length();i++) hint += "_";   // prints string of underscores
 		guess = new boolean[mWord.length()];
 		
-		drNeat = new Neato();
+		// drNeat = new Neato();
 		
-		tries = new Text(160,25,"Letters you've used: "+fails.toString());
-		tries.grow(45,10);
-		tries.draw();
+		// tries = new Text(160,25,"Letters you've used: "+fails.toString());
+		// tries.grow(45,10);
+		// tries.draw();
 		
 		actualStr = new String("");
 		for(int i=0;i<mWord.length();i++)  // draws game status onscreen.
@@ -36,9 +36,9 @@ public class MysteryWord{
 			if(guess[i]) actualStr += mWord.substring(i,i+1)+" ";
 			else actualStr += hint.substring(i,i+1)+" ";
 		}
-		actual = new Text(200,420,actualStr);
-		actual.grow(20,10);
-		actual.draw();
+		// actual = new Text(200,420,actualStr);
+		// actual.grow(20,10);
+		// actual.draw();
 		
 		/*gui*/
 		Hangman.gui.updateWord(hint); //add the hints in gui
@@ -75,7 +75,7 @@ public class MysteryWord{
 		
 		if(!duplicate && mWord.indexOf(input.toLowerCase()) == -1){
 			fails.add(input.toLowerCase());
-			drNeat.getPart(fails.size()-1); //add a part of DrNeat's body
+			// drNeat.getPart(fails.size()-1); //add a part of DrNeat's body
 			
 			/*gui*/
 			Hangman.gui.updateFails(input, fails.size()); //update screen in gui
@@ -92,7 +92,7 @@ public class MysteryWord{
 		// }
 		// System.out.print("       |        Incorrect Guesses: "+fails);
 		// System.out.println();
-		tries.setText("Letters you've used: "+fails);
+		// tries.setText("Letters you've used: "+fails);
 		
 		actualStr = "";
 		for(int i=0;i<mWord.length();i++)  // updates and draws game status onscreen.
@@ -100,7 +100,7 @@ public class MysteryWord{
 			if(guess[i]) actualStr += mWord.substring(i,i+1)+" ";
 			else actualStr += hint.substring(i,i+1)+" ";
 		}
-		actual.setText(actualStr);
+		// actual.setText(actualStr);
 		
 		/*gui*/
 		Hangman.gui.updateWord(actualStr);
