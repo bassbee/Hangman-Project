@@ -1,3 +1,3 @@
-java -cp .; Control
+java -cp .; starter
 pause
 

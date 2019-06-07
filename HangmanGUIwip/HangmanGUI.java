@@ -7,7 +7,7 @@ I need help figuring out how to combine this with our gamestate,
 gamedriver, and hangman game to make a fully functional game.
 Would appreciate if anyone helped.
 */
-mport java.awt.Color;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,6 +23,10 @@ import java.net.URL;
 import java.util.List;
 import java.util.ArrayList;
 
+import pkg.Text;
+
+package HangmanGUIwip;
+
 public class HangmanGUI extends JFrame // implements ActionListener
 {
 	protected ImageIcon createImageIcon(String path, String description) {
@@ -35,18 +39,28 @@ public class HangmanGUI extends JFrame // implements ActionListener
 		}
 	}
 	
+	private JPanel display;
+	private JLabel word;
+	
 	public HangmanGUI() {
-		JPanel display = new JPanel();
+		display = new JPanel();
 		JButton hit = new JButton("Guess?");
 		JTextField input = new JTextField("");
-		
+	 	
 		ImageIcon pic = createImageIcon("images/neatwhole.png","whole neat");
 		// Scales image
 		Image img = pic.getImage();
 		Image newImg = img.getScaledInstance(300,300,java.awt.Image.SCALE_SMOOTH);
 		pic = new ImageIcon(newImg);
 		JLabel neato = new JLabel(pic);
+		  neato.setVisible(false);
 		JLabel guess = new JLabel("Tries: ");
+		
+		  word = new JLabel("");
+		  word.setBounds(10,25,100,30);
+		  word.setVisible(false);
+		  display.add(word);
+		
 		
 		hit.setBounds(210, 420, 100, 30);
 		display.setBounds(800, 800, 200, 100);
@@ -61,6 +75,19 @@ public class HangmanGUI extends JFrame // implements ActionListener
 		display.setLayout(null); // JPanel layout
 		add(display);
 		
+		
+		 /**
+		  * Action Performed when button is pressed.
+		  */
+		  hit.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            /*Add what happens when the button is pressed*/
+			System.out.println("hit");
+			neato.setVisible(true);
+          }
+	      } );
+		
+		
 		// JFrame properties
         setSize(500,500);
         setBackground(Color.WHITE);
@@ -69,4 +96,15 @@ public class HangmanGUI extends JFrame // implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+	
+	//ADD TO GAMEDRIVER CONSTRUCTOR!
+	
+	public void addWord(String s)
+	{
+		// JLabel guess = new JLabel(s);
+		// display.add(guess);
+		// guess.setBounds(10,25,100,30);
+		word.setText(s);
+		word.setVisible(true);
+	}
 }
