@@ -1,0 +1,3 @@
+java -cp .; Control
+pause
+
