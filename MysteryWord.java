@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class MysteryWord{
 	private ArrayList<String> words;
 	private boolean[] guess;
-	private String mWord;
+	static String mWord;
 	private String hint;
 	private ArrayList<String> fails;
 	private Text tries;

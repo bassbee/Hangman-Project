@@ -184,6 +184,7 @@ public class HangmanGUI extends JFrame // implements ActionListener
 		/*
 		 * updates the String word with the mysteryWord
 		 */ 
+		// int counter = 0; System.out.println(counter++);
 		word.setText(s);
 		word.setVisible(true);
 	}
@@ -223,6 +224,14 @@ public class HangmanGUI extends JFrame // implements ActionListener
 		/*
 		 * method used in GameDriver.java after the game is over
 		 */ 
+		String fix = "";
+		for(int i = 0; i<MysteryWord.mWord.length(); i++)
+		{
+			fix += MysteryWord.mWord.substring(i, i+1) + " ";
+		} 	 
+		 
+		word.setText(fix);
+		 
 		if(b){
 			result.setText("You Saved Dr. Neat!");
 		}else{

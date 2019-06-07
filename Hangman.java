@@ -35,7 +35,7 @@ class Hangman implements GameState
 	{
 		if(!mWord.noLivesLeft()) return mWord.wordComplete(); // checks if the player has failed three times OR
 								      //if he has guessed the word
-		return true;
+		return true; 
 	}
 	
 	public Player getWinner()
