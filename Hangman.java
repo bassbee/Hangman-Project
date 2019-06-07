@@ -1,21 +1,34 @@
 import pkg.*;
 import java.util.ArrayList;
 
+// import HangmanGUIwip.HangmanGUI;
+
 class Hangman implements GameState
 {
 	private MysteryWord mWord; //mysteryword that returns the word player needs to guess
 	private Player player;     //the player
 	private EasyReader console;// how the console receives guesses and difficulty
 
+	/*variables for HangmanGUI.java*/
+	static HangmanGUI gui;
+	static String input; //used in line 65
+	
 	public Hangman()
 	{
+		gui = new HangmanGUI(); //setVisible false
+		//after lines 17-21, in mysteryWord set the game
+		
 		System.out.print("Choose HARD/MEDIUM/EASY: ");
 		console = new EasyReader();     //easyreader gets the difficulty from the console. 
 		String d = console.readLine();  //on our final project, the canvas will do this instead.
 		mWord = new MysteryWord(d.toLowerCase());     //REMEMBER, d = difficulty, not the actual word. 
 		player = new Player("User");
-		System.out.println("[Enter in a letter to guess!] \n\n");
-		mWord.printGameStatus();
+		
+		// System.out.println("[Enter in a letter to guess!] \n\n");
+		// mWord.printGameStatus();
+		
+		input = "";
+		gui.init();
 	}
 	
 	public boolean isGameOver()
@@ -47,8 +60,11 @@ class Hangman implements GameState
 	{
 		if(move.equals("guess")) //only valid move is guess. so thats what we worry about
 		{
-			mWord.updateGame(console.readChar()+"");
+			// mWord.updateGame(console.readChar()+"");
 			mWord.printGameStatus();
+			
+			/*gui*/
+			mWord.updateGame(input);
 		}
 		else return;
 	}

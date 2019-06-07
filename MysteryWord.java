@@ -39,6 +39,9 @@ public class MysteryWord{
 		actual = new Text(200,420,actualStr);
 		actual.grow(20,10);
 		actual.draw();
+		
+		/*gui*/
+		Hangman.gui.updateWord(hint); //add the hints in gui
 	}
 	
 	public String getWord()
@@ -71,8 +74,11 @@ public class MysteryWord{
 		}
 		
 		if(!duplicate && mWord.indexOf(input.toLowerCase()) == -1){
-			fails.add(input);
+			fails.add(input.toLowerCase());
 			drNeat.getPart(fails.size()-1); //add a part of DrNeat's body
+			
+			/*gui*/
+			Hangman.gui.updateFails(input, fails.size()); //update screen in gui
 		}
 			
 	}
@@ -95,6 +101,9 @@ public class MysteryWord{
 			else actualStr += hint.substring(i,i+1)+" ";
 		}
 		actual.setText(actualStr);
+		
+		/*gui*/
+		Hangman.gui.updateWord(actualStr);
 	}
 
 	public boolean wordComplete()

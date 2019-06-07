@@ -22,12 +22,18 @@ public class GameDriver //Sarah's code. this works; no editing pls.
 			condition = new Text(200,450,state.getWinner().getName() + " win");
 			condition.grow(30,10);
 			condition.draw();
+			
+			/*gui*/
+			Hangman.gui.result(true);
 		}
 		else{
 			// System.out.println("you lose"); 
 			condition = new Text(200,450,"you lose");
 			condition.grow(30,10);
 			condition.draw();
+			
+			/*gui*/
+			Hangman.gui.result(false);
 		}
 	}
 	
