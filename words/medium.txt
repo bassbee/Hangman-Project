@@ -1,1 +1,6 @@
-medium
+donut
+foster
+zombie
+champion
+jacket
+computer
