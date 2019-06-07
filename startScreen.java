@@ -50,8 +50,7 @@ public class startScreen extends JFrame
 		ez.addActionListener((ActionEvent e) -> {
 			/**add what happens when 'easy' is pressed*/
 			System.out.println("easy");
-			HangmanGame game = new HangmanGame();
-			game.setDifficulty("easy");
+			HangmanGame game = new HangmanGame("easy");
 			game.drawGame();
 		});
 		
@@ -59,8 +58,7 @@ public class startScreen extends JFrame
 		med.addActionListener((ActionEvent e) -> {
 			/**add what happens when 'medium' is pressed*/
 			System.out.println("medium");
-			HangmanGame game = new HangmanGame();
-			game.setDifficulty("medium");
+			HangmanGame game = new HangmanGame("medium");
 			game.drawGame();
 			
 		});
@@ -69,8 +67,7 @@ public class startScreen extends JFrame
 		hard.addActionListener((ActionEvent e) -> {
 			/**add what happens when 'hard' is pressed*/
 			System.out.println("hard");
-			HangmanGame game = new HangmanGame();
-			game.setDifficulty("hard");
+			HangmanGame game = new HangmanGame("hard");
 			game.drawGame();
 		});
 		
